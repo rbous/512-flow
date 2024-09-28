@@ -1,6 +1,6 @@
 import socket
 import threading
-from chunking import send_chunk, receive_chunk
+from file_manager.chunking import send_chunk, receive_chunk
 
 def start_server(node_port):
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
