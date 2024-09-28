@@ -4,7 +4,7 @@ import random
 import time
 from network.server import start_server
 from network.client import request_chunk
-from network.bootstrap import register_with_bootstrap, get_known_nodes
+from network.bootstrap import register_with_bootstrap
 from file_manager.chunking import chunk_file, send_chunk, receive_chunk
 from config import CHUNK_SIZE
 

@@ -3,7 +3,10 @@ from config import CHUNK_SIZE
 
 def request_chunk(node_ip, node_port, chunk_id):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((node_ip, node_port))
+
+    # Convert node_port to an integer before using it in the connect function
+    client.connect((node_ip, int(node_port)))
+
     client.send(b'request_chunk')
     client.send(str(chunk_id).encode())
 
