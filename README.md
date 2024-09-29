@@ -24,6 +24,8 @@ $ cd 512-flow
 ```
 ## Usage
 
+> Files to be transferred must already be saved in the root folder of the targeted node.
+
 1. On the designated bootstrap machine, create bootstrap node.
 
 ```sh
@@ -38,8 +40,6 @@ $ python3 `nodes.py`
 ```
 
 3. On each node, enter ip adress of node, then file name as prompted.
-
-> Files to be transferred must already be saved in the root folder of the targeted node.
 
 ### Example
 
@@ -80,6 +80,7 @@ File 'test.txt' downloaded successfully.
 Enter 'd' to download a file or 'q' to quit:
 ```
 
-
+## License
+This project is licensed under the MIT License.
 
    
