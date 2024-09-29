@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Lists</title>
+</head>
+<body>
+    <h1>Your Grocery Lists</h1>
+    <ul>
+        {% for list in lists %}
+            <li>
+                <strong>ID:</strong> {{ list[0] }}<br>
+                <strong>Full Name:</strong> {{ list[1] }}<br>
+                <strong>Tasks:</strong> {{ list[2] }}<br>
+                <strong>Collaborating:</strong> {{ list[3] }}<br>
+                <strong>Collaborated:</strong> {{ list[4] }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Add New Grocery List</h2>
+    <form id="addListForm">
+        <input type="text" id="fullName" placeholder="Your Name" required>
+        <input type="text" id="tasks" placeholder="Tasks (comma separated)" required>
+        <button type="submit">Add List</button>
+    </form>
+    
+    <script>
+        document.getElementById('addListForm').onsubmit = function(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const tasks = document.getElementById('tasks').value;
+
+            fetch(`/user/${fullName}/grocerylist`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ items: tasks })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                location.reload();  // Refresh the page to see the new list
+            });
+        };
+    </script>
+</body>
+</html>

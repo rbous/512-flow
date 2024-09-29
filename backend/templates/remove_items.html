@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Items</title>
+</head>
+<body>
+    <h1>Remove Items from Grocery List</h1>
+    
+    <form id="remove-items-form">
+        <input type="text" id="items-to-remove" placeholder="Enter items to remove separated by commas" required>
+        <input type="hidden" id="list-id" value="{{ list_id }}"> <!-- Pass list ID from Flask -->
+        <button type="submit">Remove Items</button>
+    </form>
+
+    <script>
+        document.getElementById('remove-items-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const itemsToRemove = document.getElementById('items-to-remove').value;
+            const listId = document.getElementById('list-id').value;
+            // Fetch API to remove items
+            fetch(`/grocerylist/${listId}/remove`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ items: itemsToRemove })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

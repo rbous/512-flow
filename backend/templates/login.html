@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+        }
+        .success {
+            color: green;
+        }
+        .danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <!-- Flash Messages Section -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Form Section -->
+    <form action="{{ url_for('login') }}" method="POST">
+        {{ form.hidden_tag() }}  <!-- CSRF token for form protection -->
+
+        <!-- Full Name Field -->
+        <label for="full_name">{{ form.full_name.label }}</label><br>
+        {{ form.full_name(size=32) }}<br>
+        {% if form.full_name.errors %}
+            <ul class="errors">
+                {% for error in form.full_name.errors %}
+                    <li class="danger">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Password Field -->
+        <label for="password">{{ form.password.label }}</label><br>
+        {{ form.password(size=32) }}<br>
+        {% if form.password.errors %}
+            <ul class="errors">
+                {% for error in form.password.errors %}
+                    <li class="danger">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Submit Button -->
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
