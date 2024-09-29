@@ -191,6 +191,8 @@ def start_node(bootstrap_ip='192.168.250.105', bootstrap_port=5000):
 
     threading.Thread(target=refresh_peers, args=(bootstrap_ip, bootstrap_port), daemon=True).start()
 
+    print(f"File-sharing node running at IP: {get_local_ip()}, Port: {bootstrap_port}")
+
     # Allow the user to enter file download requests
     while True:
         print("Enter 'd' to download a file or 'q' to quit:")
