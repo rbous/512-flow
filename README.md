@@ -49,16 +49,16 @@ $ python3 bootstrap_registry.py
 Bootstrap node running at IP: 192.168.250.105, Port: 5000
 Waiting for peers to connect...
 Peer connected: ('192.168.240.1', 62069)
-Registered peer: 192.168.104.140
+Registered peer: 192.168.101.140
 Peer connected: ('192.168.240.1', 62081)
-Registered peer: 192.168.104.10
+Registered peer: 192.168.101.10
 
 
 # Node A
 $ python3 bootstrap_node.py      
 Received updated peers list: {'Peers updated.'}
 Server running on port 5000
-File-sharing node running at IP: 192.168.104.140, Port: 5000
+File-sharing node running at IP: 192.168.101.140, Port: 5000
 Enter 'd' to download a file or 'q' to quit:
 Connection from ('192.168.104.10', 49998) accepted.
 Request for file: 'test.txt'
@@ -71,9 +71,10 @@ No bootstrap node found, starting as bootstrap.
 Bootstrap node started on port 5000.
 No peers available yet, this is the first node in the network.
 Bootstrap node running at IP: 192.168.250.105, Port: 5000
+File-sharing node running at IP: 192.168.101.41, Port: 5000
 Enter 'd' to download a file or 'q' to quit:
 d
-Enter the IP of the peer to download from: 192.168.104.140
+Enter the IP of the peer to download from: 192.168.101.140
 Enter the filename to download: test2.txt
 File 'test.txt' downloaded successfully.
 [+] Hash verification successful. The file is intact.
