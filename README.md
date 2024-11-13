@@ -6,6 +6,8 @@ A basic peer-to-peer (P2P) file-sharing protocol using the TCP/IP networking sta
 This system allows nodes to share and request files with each other, chunked into 512-byte pieces for transfer. 
 The project demonstrates how peers can broadcast their presence, discover other peers, and share files directly without a central server.
 
+> Demo video is linked at the bottom
+
 ## Features
 - File chunking into 512-byte pieces
 - Peer discovery using UDP broadcasting
@@ -42,6 +44,7 @@ $ python3 `nodes.py`
 3. On each node, enter ip adress of node, then file name as prompted.
 
 ### Example
+
 
 ```sh
 # Background Process
@@ -80,6 +83,10 @@ File 'test.txt' downloaded successfully.
 [+] Hash verification successful. The file is intact.
 Enter 'd' to download a file or 'q' to quit:
 ```
+
+### Demo Video
+
+[![P2P File Sharing Demo](https://img.youtube.com/vi/AvIxgQX7pec/0.jpg)](https://www.youtube.com/watch?v=AvIxgQX7pec "P2P File Sharing Demo")à
 
 ## License
 This project is licensed under the MIT License.
