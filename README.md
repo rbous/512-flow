@@ -10,9 +10,9 @@ The project demonstrates how peers can broadcast their presence, discover other 
 
 ## Features
 - File chunking into 512-byte pieces
-- Peer discovery using UDP broadcasting
 - Peer-to-peer file transfer over TCP
-- Integrity checking using MD5 hash
+- Peer discovery using TCP broadcasting
+- Integrity checking using SHA-256 hash
 
 ## Requirements
 - Python 3.x
